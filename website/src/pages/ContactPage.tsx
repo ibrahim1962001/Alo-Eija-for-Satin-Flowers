@@ -20,7 +20,7 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="pt-28 pb-24">
+    <div className="pt-24 md:pt-28 pb-16 md:pb-24">
       <div className="container mx-auto px-6">
         <SectionTitle
           subtitle="تواصل معنا"
@@ -28,7 +28,7 @@ export default function ContactPage() {
           description="للطلبات والاستفسارات والتصاميم المخصصة، تواصلي معنا"
         />
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 max-w-5xl mx-auto">
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -93,7 +93,7 @@ export default function ContactPage() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             onSubmit={handleSubmit}
-            className="glass rounded-3xl p-8 space-y-6"
+            className="glass rounded-3xl p-6 sm:p-8 space-y-6"
           >
             <h3 className="font-display text-xl text-cream">أرسلي رسالة</h3>
 

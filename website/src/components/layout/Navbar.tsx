@@ -76,7 +76,7 @@ export function Navbar() {
               <motion.span
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
-                className="absolute -top-1 -start-1 w-5 h-5 bg-gold text-burgundy text-xs font-bold rounded-full flex items-center justify-center"
+                className="absolute -top-1 -inset-s-1 w-5 h-5 bg-gold text-burgundy text-xs font-bold rounded-full flex items-center justify-center"
               >
                 {itemCount}
               </motion.span>

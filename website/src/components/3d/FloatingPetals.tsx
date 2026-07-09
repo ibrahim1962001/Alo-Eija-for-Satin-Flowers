@@ -40,10 +40,10 @@ function Petal({ position, rotation, scale, color, speed, offset }: PetalProps) 
   );
 }
 
-export function FloatingPetals() {
+export function FloatingPetals({ count = 40 }: { count?: number }) {
   const petals = useMemo(() => {
     const colors = ["#E8A0BF", "#F4C2C2", "#D4738F", "#F5D5E0", "#C9A962", "#FFF0F5"];
-    return Array.from({ length: 40 }, (_, i) => ({
+    return Array.from({ length: count }, (_, i) => ({
       position: [
         (Math.random() - 0.5) * 12,
         (Math.random() - 0.5) * 8,
@@ -59,7 +59,7 @@ export function FloatingPetals() {
       speed: 0.3 + Math.random() * 0.5,
       offset: Math.random() * Math.PI * 2,
     }));
-  }, []);
+  }, [count]);
 
   return (
     <group>

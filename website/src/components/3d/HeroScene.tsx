@@ -1,10 +1,10 @@
-import { Suspense } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { Stars, Sparkles } from "@react-three/drei";
 import { FloatingPetals } from "./FloatingPetals";
 import { SatinRose } from "./SatinRose";
 
-function Scene() {
+function Scene({ isMobile }: { isMobile: boolean }) {
   return (
     <>
       <ambientLight intensity={0.5} />
@@ -14,10 +14,10 @@ function Scene() {
       <pointLight position={[0, 3, 2]} intensity={0.6} color="#F4C2C2" />
 
       <SatinRose />
-      <FloatingPetals />
+      <FloatingPetals count={isMobile ? 18 : 40} />
 
       <Sparkles
-        count={40}
+        count={isMobile ? 20 : 40}
         scale={10}
         size={2}
         speed={0.3}
@@ -25,30 +25,41 @@ function Scene() {
         opacity={0.5}
       />
 
-      <Stars
-        radius={50}
-        depth={30}
-        count={100}
-        factor={2}
-        saturation={0.5}
-        fade
-        speed={0.5}
-      />
+      {!isMobile && (
+        <Stars
+          radius={50}
+          depth={30}
+          count={100}
+          factor={2}
+          saturation={0.5}
+          fade
+          speed={0.5}
+        />
+      )}
     </>
   );
 }
 
 export function HeroScene() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+
   return (
     <div className="absolute inset-0 z-0">
       <Canvas
-        camera={{ position: [0, 0, 5], fov: 45 }}
-        dpr={[1, 1.5]}
-        gl={{ antialias: true, alpha: true }}
+        camera={{ position: [0, 0, isMobile ? 6 : 5], fov: 45 }}
+        dpr={isMobile ? [1, 1] : [1, 1.5]}
+        gl={{ antialias: !isMobile, alpha: true, powerPreference: "high-performance" }}
         style={{ background: "transparent" }}
       >
         <Suspense fallback={null}>
-          <Scene />
+          <Scene isMobile={isMobile} />
         </Suspense>
       </Canvas>
     </div>

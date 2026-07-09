@@ -37,36 +37,46 @@ export default function HomePage() {
           <HeroScene />
         </Suspense>
 
-        <div className="absolute inset-0 bg-gradient-to-b from-burgundy/40 via-burgundy/60 to-burgundy z-[1]" />
+        <div className="absolute inset-0 bg-linear-to-b from-burgundy/40 via-burgundy/60 to-burgundy z-1" />
 
-        <div className="relative z-10 container mx-auto px-6 text-center pt-20">
+        <div className="relative z-10 container mx-auto px-6 text-center pt-24">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.3 }}
           >
-            <span className="inline-block text-gold text-sm tracking-[0.3em] uppercase mb-6 font-medium">
+            <span className="inline-block text-gold text-xs sm:text-sm tracking-[0.2em] sm:tracking-[0.3em] uppercase mb-4 sm:mb-6 font-medium">
               Handcrafted with Love
             </span>
 
-            <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-cream mb-6 leading-tight">
+            <h1 className="font-display text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold text-cream mb-5 sm:mb-6 leading-tight">
               Alo Eija
-              <span className="block text-gradient text-3xl md:text-5xl lg:text-6xl mt-2">
+              <span className="block text-gradient text-2xl sm:text-3xl md:text-5xl lg:text-6xl mt-2">
                 for Satin Flowers
               </span>
             </h1>
 
-            <p className="text-cream/60 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
+            <p className="text-cream/60 text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-8 sm:mb-10 leading-relaxed px-2">
               صواني ومرايات شبكه، مناديل كتب الكتاب، وهوايات العروسة — كل قطعة
               مصنوعة يدوياً بحب وتفاصيل فاخرة
             </p>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button to="/products" variant="secondary" size="lg">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+              <Button
+                to="/products"
+                variant="secondary"
+                size="lg"
+                className="w-full sm:w-auto"
+              >
                 <Sparkles className="w-5 h-5" />
                 تسوقي الآن
               </Button>
-              <Button to="/about" variant="outline" size="lg">
+              <Button
+                to="/about"
+                variant="outline"
+                size="lg"
+                className="w-full sm:w-auto"
+              >
                 اكتشفي قصتنا
               </Button>
             </div>
@@ -90,10 +100,10 @@ export default function HomePage() {
       </section>
 
       {/* Features */}
-      <section className="py-24 relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-burgundy via-burgundy-light/30 to-burgundy" />
+      <section className="py-16 md:py-24 relative">
+        <div className="absolute inset-0 bg-linear-to-b from-burgundy via-burgundy-light/30 to-burgundy" />
         <div className="container mx-auto px-6 relative z-10">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             {features.map((feature, i) => (
               <motion.div
                 key={feature.title}
@@ -101,7 +111,7 @@ export default function HomePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.15, duration: 0.6 }}
-                className="glass rounded-2xl p-8 text-center group hover:border-gold/30 transition-all duration-500"
+                className="glass rounded-2xl p-6 sm:p-8 text-center group hover:border-gold/30 transition-all duration-500"
               >
                 <div className="w-14 h-14 rounded-full bg-gold/10 flex items-center justify-center mx-auto mb-5 group-hover:bg-gold/20 transition-colors">
                   <feature.icon className="w-6 h-6 text-gold" />
@@ -119,7 +129,7 @@ export default function HomePage() {
       </section>
 
       {/* Featured Products */}
-      <section className="py-24">
+      <section className="py-16 md:py-24">
         <div className="container mx-auto px-6">
           <SectionTitle
             subtitle="مجموعتنا المميزة"
@@ -127,7 +137,7 @@ export default function HomePage() {
             description="اكتشفي مجموعة مختارة من صوانينا ومراياتنا ومناديل كتب الكتاب المصنوعة يدوياً"
           />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {featuredProducts.map((product, i) => (
               <ProductCard key={product.id} product={product} index={i} />
             ))}
@@ -148,26 +158,31 @@ export default function HomePage() {
       </section>
 
       {/* CTA Banner */}
-      <section className="py-24 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-l from-rose-deep/30 to-burgundy" />
-        <div className="absolute top-0 right-0 w-96 h-96 bg-gold/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-rose/10 rounded-full blur-3xl" />
+      <section className="py-16 md:py-24 relative overflow-hidden">
+        <div className="absolute inset-0 bg-linear-to-l from-rose-deep/30 to-burgundy" />
+        <div className="absolute top-0 right-0 w-72 h-72 sm:w-96 sm:h-96 bg-gold/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-72 h-72 sm:w-96 sm:h-96 bg-rose/10 rounded-full blur-3xl" />
 
         <div className="container mx-auto px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="glass rounded-3xl p-12 md:p-16 text-center max-w-3xl mx-auto"
+            className="glass rounded-3xl p-8 sm:p-12 md:p-16 text-center max-w-3xl mx-auto"
           >
-            <h2 className="font-display text-3xl md:text-4xl text-cream mb-4">
+            <h2 className="font-display text-2xl sm:text-3xl md:text-4xl text-cream mb-4">
               هدية لا تُنسى
             </h2>
-            <p className="text-cream/50 text-lg mb-8 leading-relaxed">
+            <p className="text-cream/50 text-base sm:text-lg mb-8 leading-relaxed">
               اطلبي تصميم مخصص لمناسبتك — كتب كتاب، خطوبة, فرح، أو أي مناسبة
               خاصة بأسماء وتواريخك
             </p>
-            <Button to="/contact" variant="secondary" size="lg">
+            <Button
+              to="/contact"
+              variant="secondary"
+              size="lg"
+              className="w-full sm:w-auto"
+            >
               <Heart className="w-5 h-5" />
               اطلبي تصميم مخصص
             </Button>

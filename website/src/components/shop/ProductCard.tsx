@@ -22,14 +22,14 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
       className="group relative"
     >
       <div className="relative overflow-hidden rounded-2xl bg-burgundy-light/50 border border-gold/10 backdrop-blur-sm">
-        <div className="relative aspect-[4/5] overflow-hidden">
+        <div className="relative aspect-4/5 overflow-hidden">
           <img
             src={product.image}
             alt={product.name}
             loading="lazy"
             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-burgundy/80 via-transparent to-transparent opacity-60" />
+          <div className="absolute inset-0 bg-linear-to-t from-burgundy/80 via-transparent to-transparent opacity-60" />
 
           {product.badge && (
             <span className="absolute top-4 right-4 bg-gold text-burgundy text-xs font-bold px-3 py-1 rounded-full">

@@ -31,7 +31,7 @@ const values = [
 
 export default function AboutPage() {
   return (
-    <div className="pt-28 pb-24">
+    <div className="pt-24 md:pt-28 pb-16 md:pb-24">
       <div className="container mx-auto px-6">
         <SectionTitle
           subtitle="قصتنا"
@@ -39,12 +39,12 @@ export default function AboutPage() {
           description="رحلة من الشغف والإبداع في عالم الهدايا الفاخرة"
         />
 
-        <div className="max-w-3xl mx-auto mb-20">
+        <div className="max-w-3xl mx-auto mb-12 md:mb-20">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="glass rounded-3xl p-8 md:p-12 space-y-6 text-cream/70 leading-relaxed text-lg"
+            className="glass rounded-3xl p-6 sm:p-8 md:p-12 space-y-6 text-cream/70 leading-relaxed text-base sm:text-lg"
           >
             <p>
               <strong className="text-gold">Alo Eija for Satin Flowers</strong>{" "}
@@ -64,7 +64,7 @@ export default function AboutPage() {
           </motion.div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-4xl mx-auto">
           {values.map((value, i) => (
             <motion.div
               key={value.title}
@@ -72,9 +72,9 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="flex gap-5 p-6 rounded-2xl border border-gold/10 hover:border-gold/30 transition-all"
+              className="flex gap-4 sm:gap-5 p-5 sm:p-6 rounded-2xl border border-gold/10 hover:border-gold/30 transition-all"
             >
-              <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center flex-shrink-0">
+              <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center shrink-0">
                 <value.icon className="w-5 h-5 text-gold" />
               </div>
               <div>

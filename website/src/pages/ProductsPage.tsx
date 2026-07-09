@@ -30,7 +30,7 @@ export default function ProductsPage() {
       : "تصفحي تشكيلتنا من صواني ومرايات شبكه ومناديل كتب الكتاب وهوايات العروسة";
 
   return (
-    <div className="pt-28 pb-24">
+    <div className="pt-24 md:pt-28 pb-16 md:pb-24">
       <div className="container mx-auto px-6">
         <SectionTitle
           subtitle="المتجر"
@@ -38,13 +38,13 @@ export default function ProductsPage() {
           description={activeDescription}
         />
 
-        <div className="flex flex-wrap items-center justify-center gap-3 mb-12">
+        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-8 sm:mb-12">
           {categories.map((cat) => (
             <button
               key={cat.key}
               onClick={() => setActiveCategory(cat.key)}
               className={cn(
-                "px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 cursor-pointer",
+                "px-4 sm:px-6 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 cursor-pointer",
                 activeCategory === cat.key
                   ? "bg-gold text-burgundy shadow-lg shadow-gold/20"
                   : "bg-burgundy-light/50 text-cream/60 hover:text-cream border border-gold/10 hover:border-gold/30"
@@ -57,7 +57,7 @@ export default function ProductsPage() {
 
         <motion.div
           layout
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
         >
           {filtered.map((product, i) => (
             <ProductCard key={product.id} product={product} index={i} />

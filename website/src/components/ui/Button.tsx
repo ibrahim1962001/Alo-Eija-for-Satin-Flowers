@@ -10,9 +10,9 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 
 const variants = {
   primary:
-    "bg-gradient-to-l from-rose-deep to-rose text-cream hover:shadow-lg hover:shadow-rose/30",
+    "bg-linear-to-l from-rose-deep to-rose text-cream hover:shadow-lg hover:shadow-rose/30",
   secondary:
-    "bg-gradient-to-l from-gold to-gold-light text-burgundy hover:shadow-lg hover:shadow-gold/30",
+    "bg-linear-to-l from-gold to-gold-light text-burgundy hover:shadow-lg hover:shadow-gold/30",
   outline:
     "border-2 border-gold/50 text-gold hover:bg-gold/10 hover:border-gold",
   ghost: "text-cream/80 hover:text-cream hover:bg-white/5",

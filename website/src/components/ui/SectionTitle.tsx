@@ -19,23 +19,23 @@ export function SectionTitle({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.7 }}
-      className={`mb-12 ${align === "center" ? "text-center" : "text-right"}`}
+      className={`mb-8 sm:mb-12 ${align === "center" ? "text-center" : "text-right"}`}
     >
       {subtitle && (
-        <span className="mb-3 inline-block text-sm font-medium tracking-widest text-gold uppercase">
+        <span className="mb-3 inline-block text-xs sm:text-sm font-medium tracking-widest text-gold uppercase">
           {subtitle}
         </span>
       )}
-      <h2 className="font-display text-3xl md:text-5xl font-bold text-cream mb-4 leading-tight">
+      <h2 className="font-display text-2xl sm:text-3xl md:text-5xl font-bold text-cream mb-4 leading-tight">
         {title}
       </h2>
       <div
-        className={`h-px w-20 bg-gradient-to-l from-gold to-transparent mb-4 ${
+        className={`h-px w-20 bg-linear-to-l from-gold to-transparent mb-4 ${
           align === "center" ? "mx-auto" : "mr-0"
         }`}
       />
       {description && (
-        <p className="text-cream/60 text-lg max-w-2xl mx-auto leading-relaxed">
+        <p className="text-cream/60 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed px-2">
           {description}
         </p>
       )}

@@ -40,7 +40,7 @@ export function CartDrawer() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setCartOpen(false)}
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[60]"
+            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-60"
           />
 
           <motion.div
@@ -48,7 +48,7 @@ export function CartDrawer() {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed top-0 right-0 h-full w-full max-w-md bg-burgundy border-l border-gold/10 z-[70] flex flex-col shadow-2xl"
+            className="fixed top-0 right-0 h-full w-full max-w-md bg-burgundy border-l border-gold/10 z-70 flex flex-col shadow-2xl"
           >
             <div className="flex items-center justify-between p-6 border-b border-gold/10">
               <h2 className="font-display text-xl text-cream">سلة التسوق</h2>
@@ -84,7 +84,7 @@ export function CartDrawer() {
                       exit={{ opacity: 0, x: -100 }}
                       className="flex gap-4 p-3 rounded-xl bg-burgundy-light/50 border border-gold/5"
                     >
-                      <div className="relative w-20 h-20 rounded-lg overflow-hidden flex-shrink-0">
+                      <div className="relative w-20 h-20 rounded-lg overflow-hidden shrink-0">
                         <img
                           src={item.product.image}
                           alt={item.product.name}
