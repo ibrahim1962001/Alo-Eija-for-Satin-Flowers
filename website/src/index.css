@@ -1,23 +1,19 @@
 @import "tailwindcss";
 
 @theme {
-  --color-burgundy: #2D1520;
-  --color-burgundy-dark: #1A0B12;
-  --color-burgundy-light: #3D1F2E;
-  --color-rose: #D4738F;
-  --color-rose-light: #F4C2C2;
-  --color-rose-deep: #8B2252;
-  --color-gold: #C9A962;
-  --color-gold-light: #E8D5A3;
-  --color-cream: #FFF8F0;
-  --color-blush: #F5E6EA;
+  --color-burgundy: #2d1520;
+  --color-burgundy-dark: #1a0b12;
+  --color-burgundy-light: #3d1f2e;
+  --color-rose: #d4738f;
+  --color-rose-light: #f4c2c2;
+  --color-rose-deep: #8b2252;
+  --color-gold: #c9a962;
+  --color-gold-light: #e8d5a3;
+  --color-cream: #fff8f0;
+  --color-blush: #f5e6ea;
 
-  --font-display: var(--font-playfair), serif;
-  --font-body: var(--font-cairo), sans-serif;
-}
-
-@utility font-body {
-  font-family: var(--font-body);
+  --font-display: "Playfair Display", serif;
+  --font-body: "Cairo", sans-serif;
 }
 
 html {
@@ -63,8 +59,13 @@ body {
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 .animate-float {
@@ -72,8 +73,12 @@ body {
 }
 
 @keyframes shimmer {
-  0% { background-position: -200% center; }
-  100% { background-position: 200% center; }
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
 }
 
 .animate-shimmer {

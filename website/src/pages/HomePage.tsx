@@ -1,6 +1,4 @@
-"use client";
-
-import dynamic from "next/dynamic";
+import { lazy, Suspense } from "react";
 import { motion } from "framer-motion";
 import { ArrowLeft, Sparkles, Heart, Star } from "lucide-react";
 import { Button } from "@/components/ui/Button";
@@ -8,10 +6,8 @@ import { SectionTitle } from "@/components/ui/SectionTitle";
 import { ProductCard } from "@/components/shop/ProductCard";
 import { featuredProducts } from "@/data/products";
 
-const HeroScene = dynamic(
-  () =>
-    import("@/components/3d/HeroScene").then((mod) => mod.HeroScene),
-  { ssr: false, loading: () => <div className="absolute inset-0 bg-burgundy" /> }
+const HeroScene = lazy(() =>
+  import("@/components/3d/HeroScene").then((mod) => ({ default: mod.HeroScene }))
 );
 
 const features = [
@@ -37,7 +33,9 @@ export default function HomePage() {
     <>
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <HeroScene />
+        <Suspense fallback={<div className="absolute inset-0 bg-burgundy" />}>
+          <HeroScene />
+        </Suspense>
 
         <div className="absolute inset-0 bg-gradient-to-b from-burgundy/40 via-burgundy/60 to-burgundy z-[1]" />
 
@@ -64,11 +62,11 @@ export default function HomePage() {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button href="/products" variant="secondary" size="lg">
+              <Button to="/products" variant="secondary" size="lg">
                 <Sparkles className="w-5 h-5" />
                 تسوقي الآن
               </Button>
-              <Button href="/about" variant="outline" size="lg">
+              <Button to="/about" variant="outline" size="lg">
                 اكتشفي قصتنا
               </Button>
             </div>
@@ -141,7 +139,7 @@ export default function HomePage() {
             viewport={{ once: true }}
             className="text-center mt-12"
           >
-            <Button href="/products" variant="outline" size="lg">
+            <Button to="/products" variant="outline" size="lg">
               <ArrowLeft className="w-5 h-5" />
               عرض كل المنتجات
             </Button>
@@ -166,10 +164,10 @@ export default function HomePage() {
               هدية لا تُنسى
             </h2>
             <p className="text-cream/50 text-lg mb-8 leading-relaxed">
-              اطلبي تصميم مخصص لمناسبتك — كتب كتاب، خطوبة، فرح، أو أي مناسبة
+              اطلبي تصميم مخصص لمناسبتك — كتب كتاب، خطوبة, فرح، أو أي مناسبة
               خاصة بأسماء وتواريخك
             </p>
-            <Button href="/contact" variant="secondary" size="lg">
+            <Button to="/contact" variant="secondary" size="lg">
               <Heart className="w-5 h-5" />
               اطلبي تصميم مخصص
             </Button>

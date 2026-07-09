@@ -1,5 +1,3 @@
-"use client";
-
 import { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import { Float, MeshDistortMaterial } from "@react-three/drei";

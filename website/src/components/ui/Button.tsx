@@ -1,12 +1,10 @@
-"use client";
-
-import Link from "next/link";
+import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "primary" | "secondary" | "outline" | "ghost";
   size?: "sm" | "md" | "lg";
-  href?: string;
+  to?: string;
   children: React.ReactNode;
 }
 
@@ -29,7 +27,7 @@ const sizes = {
 export function Button({
   variant = "primary",
   size = "md",
-  href,
+  to,
   className,
   children,
   type = "button",
@@ -43,10 +41,10 @@ export function Button({
     className
   );
 
-  if (href) {
+  if (to) {
     return (
       <Link
-        href={href}
+        to={to}
         className={classes}
         onClick={
           onClick

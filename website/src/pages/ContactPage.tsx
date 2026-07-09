@@ -1,5 +1,3 @@
-"use client";
-
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { MessageCircle, Instagram, MapPin, Clock, Send } from "lucide-react";
@@ -41,7 +39,7 @@ export default function ContactPage() {
               href={`https://wa.me/${WHATSAPP_NUMBER}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-4 glass rounded-2xl p-6 hover:border-gold/30 transition-all group"
+              className="flex items-center gap-4 glass rounded-2xl p-6 hover:border-gold/30 transition-all"
             >
               <div className="w-12 h-12 rounded-full bg-green-500/20 flex items-center justify-center">
                 <MessageCircle className="w-5 h-5 text-green-400" />
@@ -56,7 +54,7 @@ export default function ContactPage() {
               href="https://instagram.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-4 glass rounded-2xl p-6 hover:border-gold/30 transition-all group"
+              className="flex items-center gap-4 glass rounded-2xl p-6 hover:border-gold/30 transition-all"
             >
               <div className="w-12 h-12 rounded-full bg-pink-500/20 flex items-center justify-center">
                 <Instagram className="w-5 h-5 text-pink-400" />
@@ -83,7 +81,9 @@ export default function ContactPage() {
               </div>
               <div>
                 <h3 className="text-cream font-medium">أوقات العمل</h3>
-                <p className="text-cream/40 text-sm">يومياً من 10 صباحاً — 10 مساءً</p>
+                <p className="text-cream/40 text-sm">
+                  يومياً من 10 صباحاً — 10 مساءً
+                </p>
               </div>
             </div>
           </motion.div>

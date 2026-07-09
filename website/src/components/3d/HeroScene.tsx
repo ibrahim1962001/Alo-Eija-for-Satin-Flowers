@@ -1,5 +1,3 @@
-"use client";
-
 import { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import { Stars, Sparkles } from "@react-three/drei";
@@ -10,11 +8,7 @@ function Scene() {
   return (
     <>
       <ambientLight intensity={0.5} />
-      <hemisphereLight
-        intensity={0.6}
-        color="#FFE4EC"
-        groundColor="#2D1520"
-      />
+      <hemisphereLight intensity={0.6} color="#FFE4EC" groundColor="#2D1520" />
       <directionalLight position={[5, 5, 5]} intensity={0.8} color="#FFE4EC" />
       <directionalLight position={[-3, 2, -2]} intensity={0.4} color="#C9A962" />
       <pointLight position={[0, 3, 2]} intensity={0.6} color="#F4C2C2" />

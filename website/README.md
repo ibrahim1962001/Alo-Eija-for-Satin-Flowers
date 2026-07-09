@@ -21,6 +21,13 @@ npm run dev
 
 افتحي [http://localhost:3000](http://localhost:3000)
 
+للبناء للإنتاج:
+
+```bash
+npm run build
+npm run preview
+```
+
 ## التخصيص
 
 1. **رقم الواتساب**: عدّلي `WHATSAPP_NUMBER` في `src/lib/utils.ts`
@@ -33,7 +40,9 @@ npm run dev
 
 ## التقنيات
 
-- Next.js 15 + TypeScript
+- React 19 + TypeScript
+- Vite (أداة البناء)
+- React Router (التنقل بين الصفحات)
 - React Three Fiber (3D)
 - Framer Motion (أنيميشن)
 - Tailwind CSS 4

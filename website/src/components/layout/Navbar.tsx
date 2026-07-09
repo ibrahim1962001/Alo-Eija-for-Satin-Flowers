@@ -1,7 +1,5 @@
-"use client";
-
 import { useState, useEffect } from "react";
-import Link from "next/link";
+import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { ShoppingBag, Menu, X, Flower2 } from "lucide-react";
 import { useCartStore } from "@/lib/cart-store";
@@ -39,7 +37,7 @@ export function Navbar() {
       )}
     >
       <nav className="container mx-auto flex items-center justify-between px-6">
-        <Link href="/" className="flex items-center gap-3 group">
+        <Link to="/" className="flex items-center gap-3 group">
           <div className="relative">
             <Flower2 className="w-8 h-8 text-gold transition-transform group-hover:rotate-12" />
             <div className="absolute inset-0 blur-lg bg-gold/20 rounded-full" />
@@ -58,7 +56,7 @@ export function Navbar() {
           {navLinks.map((link) => (
             <Link
               key={link.href}
-              href={link.href}
+              to={link.href}
               className="text-cream/70 hover:text-gold transition-colors text-sm font-medium relative group"
             >
               {link.label}
@@ -70,7 +68,7 @@ export function Navbar() {
         <div className="flex items-center gap-4">
           <button
             onClick={toggleCart}
-            className="relative p-2 text-cream hover:text-gold transition-colors"
+            className="relative p-2 text-cream hover:text-gold transition-colors cursor-pointer"
             aria-label="سلة التسوق"
           >
             <ShoppingBag className="w-5 h-5" />
@@ -87,7 +85,7 @@ export function Navbar() {
 
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden p-2 text-cream"
+            className="md:hidden p-2 text-cream cursor-pointer"
             aria-label="القائمة"
           >
             {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -101,13 +99,13 @@ export function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-burgundy/95 backdrop-blur-xl border-t border-gold/10"
+            className="md:hidden bg-burgundy/95 backdrop-blur-xl border-t border-gold/10 overflow-hidden"
           >
             <div className="container mx-auto px-6 py-4 flex flex-col gap-4">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
-                  href={link.href}
+                  to={link.href}
                   onClick={() => setMobileOpen(false)}
                   className="text-cream/80 hover:text-gold transition-colors py-2 text-lg"
                 >

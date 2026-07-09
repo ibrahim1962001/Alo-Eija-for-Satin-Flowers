@@ -1,5 +1,3 @@
-"use client";
-
 import { motion } from "framer-motion";
 import { Heart, Scissors, Palette, Award } from "lucide-react";
 import { SectionTitle } from "@/components/ui/SectionTitle";
@@ -27,7 +25,7 @@ const values = [
     icon: Award,
     title: "الجودة",
     description:
-      "نستخدم أجود أنواع أقمشة الستان لنضمن لكِ جمالاً يدوم ولا يذبل أبداً.",
+      "نستخدم أجود الخامات لنضمن لكِ جمالاً يدوم ولا يذبل أبداً.",
   },
 ];
 
@@ -38,7 +36,7 @@ export default function AboutPage() {
         <SectionTitle
           subtitle="قصتنا"
           title="عن Alo Eija"
-          description="رحلة من الشغف والإبداع في عالم ورد الستان"
+          description="رحلة من الشغف والإبداع في عالم الهدايا الفاخرة"
         />
 
         <div className="max-w-3xl mx-auto mb-20">

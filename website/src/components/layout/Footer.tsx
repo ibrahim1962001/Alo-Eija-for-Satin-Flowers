@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "react-router-dom";
 import { Flower2, Instagram, MessageCircle } from "lucide-react";
 
 export function Footer() {
@@ -29,7 +29,7 @@ export function Footer() {
               ].map((link) => (
                 <Link
                   key={link.href}
-                  href={link.href}
+                  to={link.href}
                   className="text-cream/50 hover:text-gold transition-colors text-sm"
                 >
                   {link.label}
@@ -51,7 +51,7 @@ export function Footer() {
                 <Instagram className="w-4 h-4" />
               </a>
               <a
-                href="https://wa.me/201000000000"
+                href="https://wa.me/201154641973"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full border border-gold/20 flex items-center justify-center text-cream/50 hover:text-gold hover:border-gold transition-all"

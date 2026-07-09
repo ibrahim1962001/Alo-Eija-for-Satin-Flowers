@@ -1,7 +1,4 @@
-"use client";
-
 import { AnimatePresence, motion } from "framer-motion";
-import Image from "next/image";
 import { X, Plus, Minus, Trash2, MessageCircle } from "lucide-react";
 import { useCartStore } from "@/lib/cart-store";
 import {
@@ -57,7 +54,7 @@ export function CartDrawer() {
               <h2 className="font-display text-xl text-cream">سلة التسوق</h2>
               <button
                 onClick={() => setCartOpen(false)}
-                className="p-2 text-cream/50 hover:text-cream transition-colors"
+                className="p-2 text-cream/50 hover:text-cream transition-colors cursor-pointer"
                 aria-label="إغلاق"
               >
                 <X className="w-5 h-5" />
@@ -68,7 +65,11 @@ export function CartDrawer() {
               {items.length === 0 ? (
                 <div className="flex flex-col items-center justify-center h-full text-center">
                   <p className="text-cream/40 text-lg mb-4">السلة فارغة</p>
-                  <Button href="/products" variant="outline" onClick={() => setCartOpen(false)}>
+                  <Button
+                    to="/products"
+                    variant="outline"
+                    onClick={() => setCartOpen(false)}
+                  >
                     تسوق الآن
                   </Button>
                 </div>
@@ -84,11 +85,10 @@ export function CartDrawer() {
                       className="flex gap-4 p-3 rounded-xl bg-burgundy-light/50 border border-gold/5"
                     >
                       <div className="relative w-20 h-20 rounded-lg overflow-hidden flex-shrink-0">
-                        <Image
+                        <img
                           src={item.product.image}
                           alt={item.product.name}
-                          fill
-                          className="object-cover"
+                          className="w-full h-full object-cover"
                         />
                       </div>
                       <div className="flex-1 min-w-0">
@@ -101,10 +101,7 @@ export function CartDrawer() {
                         <div className="flex items-center gap-2 mt-2">
                           <button
                             onClick={() =>
-                              updateQuantity(
-                                item.product.id,
-                                item.quantity - 1
-                              )
+                              updateQuantity(item.product.id, item.quantity - 1)
                             }
                             className="w-7 h-7 rounded-full bg-burgundy flex items-center justify-center text-cream/60 hover:text-cream cursor-pointer"
                           >
@@ -115,10 +112,7 @@ export function CartDrawer() {
                           </span>
                           <button
                             onClick={() =>
-                              updateQuantity(
-                                item.product.id,
-                                item.quantity + 1
-                              )
+                              updateQuantity(item.product.id, item.quantity + 1)
                             }
                             className="w-7 h-7 rounded-full bg-burgundy flex items-center justify-center text-cream/60 hover:text-cream cursor-pointer"
                           >

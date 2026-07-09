@@ -30,4 +30,4 @@ ${lines.join("\n")}
   return encodeURIComponent(message);
 }
 
-export const WHATSAPP_NUMBER = "201000000000";
+export const WHATSAPP_NUMBER = "201154641973";

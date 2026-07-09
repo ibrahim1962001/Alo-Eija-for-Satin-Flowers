@@ -1,9 +1,4 @@
-"use client";
-
-import { use } from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { notFound } from "next/navigation";
+import { Link, useParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight, ShoppingBag, MessageCircle } from "lucide-react";
 import { getProductById } from "@/data/products";
@@ -11,17 +6,14 @@ import { useCartStore } from "@/lib/cart-store";
 import { formatPrice, WHATSAPP_NUMBER } from "@/lib/utils";
 import { Button } from "@/components/ui/Button";
 import { categoryLabels } from "@/types";
+import NotFoundPage from "./NotFoundPage";
 
-export default function ProductDetailPage({
-  params,
-}: {
-  params: Promise<{ id: string }>;
-}) {
-  const { id } = use(params);
-  const product = getProductById(id);
+export default function ProductDetailPage() {
+  const { id } = useParams<{ id: string }>();
+  const product = id ? getProductById(id) : undefined;
   const addItem = useCartStore((s) => s.addItem);
 
-  if (!product) notFound();
+  if (!product) return <NotFoundPage />;
 
   const handleWhatsApp = () => {
     const message = encodeURIComponent(
@@ -34,7 +26,7 @@ export default function ProductDetailPage({
     <div className="pt-28 pb-24">
       <div className="container mx-auto px-6">
         <Link
-          href="/products"
+          to="/products"
           className="inline-flex items-center gap-2 text-cream/50 hover:text-gold transition-colors mb-8 text-sm"
         >
           <ArrowRight className="w-4 h-4" />
@@ -48,13 +40,10 @@ export default function ProductDetailPage({
             transition={{ duration: 0.6 }}
             className="relative aspect-[4/5] rounded-3xl overflow-hidden border border-gold/10"
           >
-            <Image
+            <img
               src={product.image}
               alt={product.name}
-              fill
-              className="object-cover"
-              priority
-              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="w-full h-full object-cover"
             />
             {product.badge && (
               <span className="absolute top-6 right-6 bg-gold text-burgundy text-sm font-bold px-4 py-1.5 rounded-full">

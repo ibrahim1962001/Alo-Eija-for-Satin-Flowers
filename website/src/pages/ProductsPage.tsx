@@ -1,5 +1,3 @@
-"use client";
-
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { SectionTitle } from "@/components/ui/SectionTitle";
@@ -10,9 +8,12 @@ import { cn } from "@/lib/utils";
 
 const categories: { key: Category | "all"; label: string }[] = [
   { key: "all", label: "الكل" },
-  ...(Object.entries(categoryLabels) as [Category, (typeof categoryLabels)[Category]][]).map(
-    ([key, value]) => ({ key, label: value.ar })
-  ),
+  ...(
+    Object.entries(categoryLabels) as [
+      Category,
+      (typeof categoryLabels)[Category]
+    ][]
+  ).map(([key, value]) => ({ key, label: value.ar })),
 ];
 
 export default function ProductsPage() {
