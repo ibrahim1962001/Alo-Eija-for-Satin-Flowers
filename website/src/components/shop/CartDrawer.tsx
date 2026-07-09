@@ -2,6 +2,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { X, Plus, Minus, Trash2, MessageCircle } from "lucide-react";
 import { useCartStore } from "@/lib/cart-store";
 import {
+  assetUrl,
   formatPrice,
   generateWhatsAppOrder,
   WHATSAPP_NUMBER,
@@ -86,7 +87,7 @@ export function CartDrawer() {
                     >
                       <div className="relative w-20 h-20 rounded-lg overflow-hidden shrink-0">
                         <img
-                          src={item.product.image}
+                          src={assetUrl(item.product.image)}
                           alt={item.product.name}
                           className="w-full h-full object-cover"
                         />

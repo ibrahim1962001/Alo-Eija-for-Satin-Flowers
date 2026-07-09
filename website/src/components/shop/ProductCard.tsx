@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { ShoppingBag, Eye } from "lucide-react";
 import type { Product } from "@/types";
 import { useCartStore } from "@/lib/cart-store";
-import { formatPrice } from "@/lib/utils";
+import { assetUrl, formatPrice } from "@/lib/utils";
 
 interface ProductCardProps {
   product: Product;
@@ -24,7 +24,7 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
       <div className="relative overflow-hidden rounded-2xl bg-burgundy-light/50 border border-gold/10 backdrop-blur-sm">
         <div className="relative aspect-4/5 overflow-hidden">
           <img
-            src={product.image}
+            src={assetUrl(product.image)}
             alt={product.name}
             loading="lazy"
             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"

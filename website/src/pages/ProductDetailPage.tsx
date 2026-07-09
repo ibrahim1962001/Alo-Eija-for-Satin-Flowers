@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, ShoppingBag, MessageCircle } from "lucide-react";
 import { getProductById } from "@/data/products";
 import { useCartStore } from "@/lib/cart-store";
-import { formatPrice, WHATSAPP_NUMBER } from "@/lib/utils";
+import { assetUrl, formatPrice, WHATSAPP_NUMBER } from "@/lib/utils";
 import { Button } from "@/components/ui/Button";
 import { categoryLabels } from "@/types";
 import NotFoundPage from "./NotFoundPage";
@@ -41,7 +41,7 @@ export default function ProductDetailPage() {
             className="relative aspect-4/5 rounded-3xl overflow-hidden border border-gold/10"
           >
             <img
-              src={product.image}
+              src={assetUrl(product.image)}
               alt={product.name}
               className="w-full h-full object-cover"
             />

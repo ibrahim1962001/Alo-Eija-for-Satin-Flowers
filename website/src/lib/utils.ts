@@ -8,6 +8,12 @@ export function formatPrice(price: number): string {
   return `${price.toLocaleString("ar-EG")} ج.م`;
 }
 
+// Resolves a public asset path against Vite's base URL so images work both at
+// the root (Netlify / local dev) and on a repo subpath (GitHub Pages).
+export function assetUrl(path: string): string {
+  return `${import.meta.env.BASE_URL}${path.replace(/^\//, "")}`;
+}
+
 export function generateWhatsAppOrder(
   items: { name: string; quantity: number; price: number }[],
   total: number
