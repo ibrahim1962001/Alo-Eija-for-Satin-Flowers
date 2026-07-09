@@ -2,7 +2,6 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
-import Link from "next/link";
 import { X, Plus, Minus, Trash2, MessageCircle } from "lucide-react";
 import { useCartStore } from "@/lib/cart-store";
 import {
@@ -48,11 +47,11 @@ export function CartDrawer() {
           />
 
           <motion.div
-            initial={{ x: "-100%" }}
+            initial={{ x: "100%" }}
             animate={{ x: 0 }}
-            exit={{ x: "-100%" }}
+            exit={{ x: "100%" }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed top-0 left-0 h-full w-full max-w-md bg-burgundy border-r border-gold/10 z-[70] flex flex-col shadow-2xl"
+            className="fixed top-0 right-0 h-full w-full max-w-md bg-burgundy border-l border-gold/10 z-[70] flex flex-col shadow-2xl"
           >
             <div className="flex items-center justify-between p-6 border-b border-gold/10">
               <h2 className="font-display text-xl text-cream">سلة التسوق</h2>
@@ -69,9 +68,9 @@ export function CartDrawer() {
               {items.length === 0 ? (
                 <div className="flex flex-col items-center justify-center h-full text-center">
                   <p className="text-cream/40 text-lg mb-4">السلة فارغة</p>
-                  <Link href="/products" onClick={() => setCartOpen(false)}>
-                    <Button variant="outline">تسوق الآن</Button>
-                  </Link>
+                  <Button href="/products" variant="outline" onClick={() => setCartOpen(false)}>
+                    تسوق الآن
+                  </Button>
                 </div>
               ) : (
                 <div className="space-y-4">

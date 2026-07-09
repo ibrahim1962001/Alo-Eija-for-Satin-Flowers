@@ -1,7 +1,6 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowLeft, Sparkles, Heart, Star } from "lucide-react";
 import { Button } from "@/components/ui/Button";
@@ -65,17 +64,13 @@ export default function HomePage() {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link href="/products">
-                <Button variant="secondary" size="lg">
-                  <Sparkles className="w-5 h-5" />
-                  تسوقي الآن
-                </Button>
-              </Link>
-              <Link href="/about">
-                <Button variant="outline" size="lg">
-                  اكتشفي قصتنا
-                </Button>
-              </Link>
+              <Button href="/products" variant="secondary" size="lg">
+                <Sparkles className="w-5 h-5" />
+                تسوقي الآن
+              </Button>
+              <Button href="/about" variant="outline" size="lg">
+                اكتشفي قصتنا
+              </Button>
             </div>
           </motion.div>
 
@@ -146,12 +141,10 @@ export default function HomePage() {
             viewport={{ once: true }}
             className="text-center mt-12"
           >
-            <Link href="/products">
-              <Button variant="outline" size="lg">
-                <ArrowLeft className="w-5 h-5" />
-                عرض كل المنتجات
-              </Button>
-            </Link>
+            <Button href="/products" variant="outline" size="lg">
+              <ArrowLeft className="w-5 h-5" />
+              عرض كل المنتجات
+            </Button>
           </motion.div>
         </div>
       </section>
@@ -176,12 +169,10 @@ export default function HomePage() {
               اطلبي تصميم مخصص لمناسبتك — كتب كتاب، خطوبة، فرح، أو أي مناسبة
               خاصة بأسماء وتواريخك
             </p>
-            <Link href="/contact">
-              <Button variant="secondary" size="lg">
-                <Heart className="w-5 h-5" />
-                اطلبي تصميم مخصص
-              </Button>
-            </Link>
+            <Button href="/contact" variant="secondary" size="lg">
+              <Heart className="w-5 h-5" />
+              اطلبي تصميم مخصص
+            </Button>
           </motion.div>
         </div>
       </section>

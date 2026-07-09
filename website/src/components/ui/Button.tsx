@@ -1,11 +1,12 @@
 "use client";
 
-import { motion } from "framer-motion";
+import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "primary" | "secondary" | "outline" | "ghost";
   size?: "sm" | "md" | "lg";
+  href?: string;
   children: React.ReactNode;
 }
 
@@ -28,23 +29,39 @@ const sizes = {
 export function Button({
   variant = "primary",
   size = "md",
+  href,
   className,
   children,
+  type = "button",
+  onClick,
   ...props
 }: ButtonProps) {
-  return (
-    <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
-      <button
-        className={cn(
-          "inline-flex items-center justify-center gap-2 rounded-full font-medium transition-all duration-300 cursor-pointer",
-          variants[variant],
-          sizes[size],
-          className
-        )}
-        {...props}
+  const classes = cn(
+    "inline-flex items-center justify-center gap-2 rounded-full font-medium transition-all duration-300 cursor-pointer hover:scale-[1.03] active:scale-[0.97]",
+    variants[variant],
+    sizes[size],
+    className
+  );
+
+  if (href) {
+    return (
+      <Link
+        href={href}
+        className={classes}
+        onClick={
+          onClick
+            ? (e) => onClick(e as unknown as React.MouseEvent<HTMLButtonElement>)
+            : undefined
+        }
       >
         {children}
-      </button>
-    </motion.div>
+      </Link>
+    );
+  }
+
+  return (
+    <button type={type} className={classes} onClick={onClick} {...props}>
+      {children}
+    </button>
   );
 }

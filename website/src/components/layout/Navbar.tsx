@@ -17,10 +17,13 @@ const navLinks = [
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const { totalItems, toggleCart } = useCartStore();
-  const itemCount = totalItems();
+  const [mounted, setMounted] = useState(false);
+  const items = useCartStore((s) => s.items);
+  const toggleCart = useCartStore((s) => s.toggleCart);
+  const itemCount = items.reduce((sum, item) => sum + item.quantity, 0);
 
   useEffect(() => {
+    setMounted(true);
     const onScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
@@ -71,11 +74,11 @@ export function Navbar() {
             aria-label="سلة التسوق"
           >
             <ShoppingBag className="w-5 h-5" />
-            {itemCount > 0 && (
+            {mounted && itemCount > 0 && (
               <motion.span
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
-                className="absolute -top-1 -left-1 w-5 h-5 bg-gold text-burgundy text-xs font-bold rounded-full flex items-center justify-center"
+                className="absolute -top-1 -start-1 w-5 h-5 bg-gold text-burgundy text-xs font-bold rounded-full flex items-center justify-center"
               >
                 {itemCount}
               </motion.span>

@@ -74,6 +74,10 @@ export const useCartStore = create<CartStore>()(
           0
         ),
     }),
-    { name: "alo-eija-cart" }
+    {
+      name: "alo-eija-cart",
+      partialize: (state) => ({ items: state.items }),
+      skipHydration: true,
+    }
   )
 );

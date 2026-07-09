@@ -3,6 +3,7 @@ import { Cairo, Playfair_Display } from "next/font/google";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { CartDrawer } from "@/components/shop/CartDrawer";
+import { CartRehydrate } from "@/components/shop/CartRehydrate";
 import "./globals.css";
 
 const cairo = Cairo({
@@ -45,14 +46,9 @@ export default function RootLayout({
   return (
     <html lang="ar" dir="rtl">
       <body
-        className={`${cairo.variable} ${playfair.variable} antialiased`}
-        style={
-          {
-            "--font-body": "var(--font-cairo)",
-            "--font-display": "var(--font-playfair)",
-          } as React.CSSProperties
-        }
+        className={`${cairo.variable} ${playfair.variable} font-body antialiased`}
       >
+        <CartRehydrate />
         <Navbar />
         <main>{children}</main>
         <Footer />

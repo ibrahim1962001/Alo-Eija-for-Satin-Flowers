@@ -12,8 +12,12 @@
   --color-cream: #FFF8F0;
   --color-blush: #F5E6EA;
 
-  --font-display: "Playfair Display", serif;
-  --font-body: "Cairo", sans-serif;
+  --font-display: var(--font-playfair), serif;
+  --font-body: var(--font-cairo), sans-serif;
+}
+
+@utility font-body {
+  font-family: var(--font-body);
 }
 
 html {
