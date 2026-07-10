@@ -1,34 +1,19 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { X, Plus, Minus, Trash2, MessageCircle } from "lucide-react";
 import { useCartStore } from "@/lib/cart-store";
-import {
-  assetUrl,
-  formatPrice,
-  generateWhatsAppOrder,
-  WHATSAPP_NUMBER,
-} from "@/lib/utils";
+import { assetUrl, generateWhatsAppOrder, WHATSAPP_NUMBER } from "@/lib/utils";
 import { Button } from "@/components/ui/Button";
 
 export function CartDrawer() {
-  const {
-    items,
-    isOpen,
-    setCartOpen,
-    updateQuantity,
-    removeItem,
-    clearCart,
-    totalPrice,
-  } = useCartStore();
-
-  const total = totalPrice();
+  const { items, isOpen, setCartOpen, updateQuantity, removeItem, clearCart } =
+    useCartStore();
 
   const handleWhatsAppOrder = () => {
     const orderItems = items.map((item) => ({
       name: item.product.name,
       quantity: item.quantity,
-      price: item.product.price,
     }));
-    const message = generateWhatsAppOrder(orderItems, total);
+    const message = generateWhatsAppOrder(orderItems);
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, "_blank");
   };
 
@@ -96,9 +81,6 @@ export function CartDrawer() {
                         <h4 className="text-cream text-sm font-medium truncate">
                           {item.product.name}
                         </h4>
-                        <p className="text-gold text-sm font-bold mt-1">
-                          {formatPrice(item.product.price)}
-                        </p>
                         <div className="flex items-center gap-2 mt-2">
                           <button
                             onClick={() =>
@@ -135,12 +117,9 @@ export function CartDrawer() {
 
             {items.length > 0 && (
               <div className="p-6 border-t border-gold/10 space-y-4">
-                <div className="flex items-center justify-between">
-                  <span className="text-cream/60">الإجمالي</span>
-                  <span className="text-gold font-bold text-xl">
-                    {formatPrice(total)}
-                  </span>
-                </div>
+                <p className="text-center text-cream/50 text-sm">
+                  الأسعار تُحدد عبر واتساب حسب التصميم والتخصيص
+                </p>
                 <Button
                   variant="secondary"
                   size="lg"

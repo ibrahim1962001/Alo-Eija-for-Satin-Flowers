@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, ShoppingBag, MessageCircle } from "lucide-react";
 import { getProductById } from "@/data/products";
 import { useCartStore } from "@/lib/cart-store";
-import { assetUrl, formatPrice, WHATSAPP_NUMBER } from "@/lib/utils";
+import { assetUrl, WHATSAPP_NUMBER } from "@/lib/utils";
 import { Button } from "@/components/ui/Button";
 import { categoryLabels } from "@/types";
 import NotFoundPage from "./NotFoundPage";
@@ -17,7 +17,7 @@ export default function ProductDetailPage() {
 
   const handleWhatsApp = () => {
     const message = encodeURIComponent(
-      `مرحباً Alo Eija! 🌸\nأود طلب: ${product.name}\nالسعر: ${product.price} ج.م\n\nشكراً!`
+      `مرحباً Alo Eija! 🌸\nأود الاستفسار عن: ${product.name}\nوالسعر من فضلك\n\nشكراً!`
     );
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, "_blank");
   };
@@ -65,8 +65,8 @@ export default function ProductDetailPage() {
             </h1>
             <p className="text-cream/40 text-sm mb-6">{product.nameEn}</p>
 
-            <p className="text-2xl sm:text-3xl font-bold text-gold mb-6 sm:mb-8">
-              {formatPrice(product.price)}
+            <p className="text-gold/90 text-sm mb-6 sm:mb-8 inline-flex items-center gap-2 bg-gold/10 rounded-full px-4 py-2">
+              للسعر تواصلي معنا عبر واتساب
             </p>
 
             <p className="text-cream/60 leading-relaxed text-base sm:text-lg mb-8 sm:mb-10">

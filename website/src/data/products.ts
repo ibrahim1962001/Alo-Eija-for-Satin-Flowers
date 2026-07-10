@@ -7,7 +7,6 @@ const traysMirrorsProducts: Product[] = [
     nameEn: "Full Bridal Set — Mirror & Bouquet",
     description:
       "طقم متكامل يشمل مراية مزودة شبكة مخصصة بالأسماء، بوكيه توليب ستان أبيض، و boutonniere مطابق. مثالي لحفلة كتب الكتاب.",
-    price: 1200,
     image: "/images/sawani-wmarayat-shabaka/product-1.jpg",
     category: "sawani-wmarayat-shabaka",
     featured: true,
@@ -19,7 +18,6 @@ const traysMirrorsProducts: Product[] = [
     nameEn: "Octagonal Ring Tray — Pearls & Roses",
     description:
       "صينية خواتم أكريليك شفافة بإطار ذهبي ومقابض لؤلؤ، مع تخصيص بالأسماء وصندوق خواتم زجاجي وورود ستان بيضاء.",
-    price: 850,
     image: "/images/sawani-wmarayat-shabaka/product-2.jpg",
     category: "sawani-wmarayat-shabaka",
     featured: true,
@@ -30,7 +28,6 @@ const traysMirrorsProducts: Product[] = [
     nameEn: "Custom Marble Ring Tray",
     description:
       "صينية خواتم بتصميم مثمن بسطح رخامي، مزينة بأسماء العروسين وصندوق خواتم سداسي وورود جيبسوفيلا مجففة.",
-    price: 780,
     image: "/images/sawani-wmarayat-shabaka/product-3.jpg",
     category: "sawani-wmarayat-shabaka",
   },
@@ -40,7 +37,6 @@ const traysMirrorsProducts: Product[] = [
     nameEn: "Katb Kitab Mesh Mirror",
     description:
       "مراية دائرية مزودة شبكة كريستال مع إطار زجاج محطم، زهور مجففة وفراشات فضية، وفيونكة ستان كريمي — مع تخصيص بالأسماء والتاريخ.",
-    price: 650,
     image: "/images/sawani-wmarayat-shabaka/product-4.jpg",
     category: "sawani-wmarayat-shabaka",
     featured: true,
@@ -52,7 +48,6 @@ const traysMirrorsProducts: Product[] = [
     nameEn: "Golden Circular Mirror Plaque",
     description:
       "لوحة مراية دائرية بإطار ذهبي لامع مزين بزجاج محطم وكريستال، مع أسماء عربية وتاريخ هجري محفور.",
-    price: 720,
     image: "/images/sawani-wmarayat-shabaka/product-5.jpg",
     category: "sawani-wmarayat-shabaka",
   },
@@ -62,7 +57,6 @@ const traysMirrorsProducts: Product[] = [
     nameEn: "Pearl & Pampas Ring Tray",
     description:
       "صينية خواتم شفافة بمقابض لؤلؤ، مزينة بورود ستان بيضاء وبامباس مجفف وخرز لؤلؤي، مع تخصيص كامل بالأسماء.",
-    price: 900,
     image: "/images/sawani-wmarayat-shabaka/product-6.jpg",
     category: "sawani-wmarayat-shabaka",
     badge: "حصري",
@@ -73,7 +67,6 @@ const traysMirrorsProducts: Product[] = [
     nameEn: "Red Rose Mirror Tray",
     description:
       "صينية مراية دائرية بإطار لؤلؤ وورود ستان حمراء فاخرة، مع صندوق خواتم زجاجي وعبارة مخصصة وتاريخ المناسبة.",
-    price: 950,
     image: "/images/sawani-wmarayat-shabaka/product-7.jpg",
     category: "sawani-wmarayat-shabaka",
   },
@@ -86,7 +79,6 @@ const katbNapkinsProducts: Product[] = [
     nameEn: "Embroidered Napkin — Essam & Hind",
     description:
       "منديل ستان أبيض مطرز بأسماء العروسين وآية قرآنية وتواريخ الخطوبة وكتب الكتاب والفرح، مع ورود ستان ثلاثية الأبعاد.",
-    price: 550,
     image: "/images/mandil-kotob-alkitab/product-1.jpg",
     category: "mandil-kotob-alkitab",
     featured: true,
@@ -98,7 +90,6 @@ const katbNapkinsProducts: Product[] = [
     nameEn: "Katb Kitab Napkin — Rehab & Youssef",
     description:
       "منديل مطرز بتصميم العروسين تحت قوس من ورود الستان الذهبية، مع أسماء وتواريخ الخطوبة والزواج وحدود دانتيل أنيقة.",
-    price: 520,
     image: "/images/mandil-kotob-alkitab/product-2.jpg",
     category: "mandil-kotob-alkitab",
     featured: true,
@@ -109,7 +100,6 @@ const katbNapkinsProducts: Product[] = [
     nameEn: "Embroidered Napkin — Mohamed & Suhaila",
     description:
       "منديل ستان بحدود دانتيل مع بيت شعر عربي وأسماء العروسين وأجنحة فراشة لامعة وفستان عروسة بتفاصيل جليتر ثلاثية الأبعاد.",
-    price: 580,
     image: "/images/mandil-kotob-alkitab/product-3.jpg",
     category: "mandil-kotob-alkitab",
   },
@@ -119,7 +109,6 @@ const katbNapkinsProducts: Product[] = [
     nameEn: "Luxury Silver Beaded Napkin",
     description:
       "منديل ستان أبيض فاخر مطرز بخرز فضي وورود ستان بكريستال في المنتصف، مع أسماء وتاريخ كتب الكتاب وشرابات خرز متدلية.",
-    price: 620,
     image: "/images/mandil-kotob-alkitab/product-4.jpg",
     category: "mandil-kotob-alkitab",
     badge: "فاخر",
@@ -133,7 +122,6 @@ const brideFanProducts: Product[] = [
     nameEn: "Personalized Bridal Feather Fan",
     description:
       "هواية عروسة فاخرة من الريش الأبيض الناعم مع قاعدة مخصصة بالاسم وتاج ذهبي وإطار لؤلؤي — قطعة أنيقة لا تُنسى.",
-    price: 380,
     image: "/images/hawyet-alaroosa/product-1.jpg",
     category: "hawyet-alaroosa",
     featured: true,
@@ -141,7 +129,61 @@ const brideFanProducts: Product[] = [
   },
 ];
 
+const flowersProducts: Product[] = [
+  {
+    id: "flower-1",
+    name: "بوكيه ورد ستان — تصميم فاخر",
+    nameEn: "Satin Flower Bouquet — Luxury Design",
+    description:
+      "بوكيه ورد ستان هاند ميد بألوان راقية وتنسيق أنيق، مثالي للعرايس والمناسبات الخاصة. يمكن تخصيص الألوان حسب الطلب.",
+    image: "/images/zohor/product-1.jpg",
+    category: "zohor",
+    featured: true,
+    badge: "جديد",
+  },
+  {
+    id: "flower-2",
+    name: "بوكيه ورد صناعي — ألوان زاهية",
+    nameEn: "Artificial Flower Bouquet — Vibrant",
+    description:
+      "بوكيه ورد صناعي بألوان زاهية وتفاصيل واقعية، يدوم طويلاً ولا يذبل. اختيار مميز كهدية أو ديكور.",
+    image: "/images/zohor/product-2.jpg",
+    category: "zohor",
+    featured: true,
+  },
+  {
+    id: "flower-3",
+    name: "بوكيه ورد ستان — باستيل ناعم",
+    nameEn: "Satin Bouquet — Soft Pastel",
+    description:
+      "بوكيه بألوان الباستيل الناعمة من الستان الفاخر، بتنسيق رومانسي أنيق يناسب حفلات الخطوبة وكتب الكتاب.",
+    image: "/images/zohor/product-3.jpg",
+    category: "zohor",
+  },
+  {
+    id: "flower-4",
+    name: "بوكيه ورد هاند ميد — كلاسيك",
+    nameEn: "Handmade Bouquet — Classic",
+    description:
+      "بوكيه ورد هاند ميد بتصميم كلاسيكي خالد، مصنوع بعناية فائقة وتفاصيل دقيقة تناسب كل الأذواق.",
+    image: "/images/zohor/product-4.jpg",
+    category: "zohor",
+  },
+  {
+    id: "flower-5",
+    name: "بوكيه ورد فاخر — مناسبات خاصة",
+    nameEn: "Luxury Bouquet — Special Occasions",
+    description:
+      "بوكيه ورد فاخر بتنسيق مبهر لأجمل المناسبات، مع إمكانية التخصيص الكامل بالألوان والأحجام حسب رغبتك.",
+    image: "/images/zohor/product-5.jpg",
+    category: "zohor",
+    featured: true,
+    badge: "مميز",
+  },
+];
+
 export const products: Product[] = [
+  ...flowersProducts,
   ...traysMirrorsProducts,
   ...katbNapkinsProducts,
   ...brideFanProducts,

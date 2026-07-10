@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { ShoppingBag, Eye } from "lucide-react";
 import type { Product } from "@/types";
 import { useCartStore } from "@/lib/cart-store";
-import { assetUrl, formatPrice } from "@/lib/utils";
+import { assetUrl } from "@/lib/utils";
 
 interface ProductCardProps {
   product: Product;
@@ -63,9 +63,12 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
             {product.description}
           </p>
           <div className="flex items-center justify-between">
-            <span className="text-gold font-bold text-lg">
-              {formatPrice(product.price)}
-            </span>
+            <Link
+              to={`/products/${product.id}`}
+              className="text-sm text-gold hover:text-gold-light transition-colors"
+            >
+              عرض التفاصيل
+            </Link>
             <button
               onClick={() => addItem(product)}
               className="text-sm text-rose-light hover:text-gold transition-colors cursor-pointer"

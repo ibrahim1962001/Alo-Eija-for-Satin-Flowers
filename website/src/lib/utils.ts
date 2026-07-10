@@ -4,10 +4,6 @@ export function cn(...inputs: ClassValue[]) {
   return clsx(inputs);
 }
 
-export function formatPrice(price: number): string {
-  return `${price.toLocaleString("ar-EG")} ج.م`;
-}
-
 // Resolves a public asset path against Vite's base URL so images work both at
 // the root (Netlify / local dev) and on a repo subpath (GitHub Pages).
 export function assetUrl(path: string): string {
@@ -15,21 +11,14 @@ export function assetUrl(path: string): string {
 }
 
 export function generateWhatsAppOrder(
-  items: { name: string; quantity: number; price: number }[],
-  total: number
+  items: { name: string; quantity: number }[]
 ): string {
-  const lines = items.map(
-    (item) =>
-      `• ${item.name} × ${item.quantity} = ${(item.price * item.quantity).toLocaleString("ar-EG")} ج.م`
-  );
+  const lines = items.map((item) => `• ${item.name} × ${item.quantity}`);
 
   const message = `مرحباً Alo Eija! 🌸
-أود طلب المنتجات التالية:
+أود الاستفسار عن المنتجات التالية والسعر:
 
 ${lines.join("\n")}
-
-━━━━━━━━━━━━━━
-الإجمالي: ${total.toLocaleString("ar-EG")} ج.م
 
 شكراً!`;
 

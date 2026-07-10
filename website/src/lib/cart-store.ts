@@ -12,7 +12,6 @@ interface CartStore {
   toggleCart: () => void;
   setCartOpen: (open: boolean) => void;
   totalItems: () => number;
-  totalPrice: () => number;
 }
 
 export const useCartStore = create<CartStore>()(
@@ -67,12 +66,6 @@ export const useCartStore = create<CartStore>()(
 
       totalItems: () =>
         get().items.reduce((sum, item) => sum + item.quantity, 0),
-
-      totalPrice: () =>
-        get().items.reduce(
-          (sum, item) => sum + item.product.price * item.quantity,
-          0
-        ),
     }),
     {
       name: "alo-eija-cart",

@@ -57,8 +57,8 @@ export default function HomePage() {
             </h1>
 
             <p className="text-cream/60 text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-8 sm:mb-10 leading-relaxed px-2">
-              صواني ومرايات شبكه، مناديل كتب الكتاب، وهوايات العروسة — كل قطعة
-              مصنوعة يدوياً بحب وتفاصيل فاخرة
+              بوكيهات الزهور، صواني ومرايات شبكه، مناديل كتب الكتاب، وهوايات
+              العروسة — كل قطعة مصنوعة يدوياً بحب وتفاصيل فاخرة
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">

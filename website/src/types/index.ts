@@ -1,14 +1,14 @@
 export type Category =
   | "sawani-wmarayat-shabaka"
   | "mandil-kotob-alkitab"
-  | "hawyet-alaroosa";
+  | "hawyet-alaroosa"
+  | "zohor";
 
 export interface Product {
   id: string;
   name: string;
   nameEn: string;
   description: string;
-  price: number;
   image: string;
   category: Category;
   featured?: boolean;
@@ -41,5 +41,11 @@ export const categoryLabels: Record<
     en: "Bride's Fan",
     description: "هوايات عروسة فاخرة بالريش مع تخصيص بالاسم",
     folder: "hawyet-alaroosa",
+  },
+  zohor: {
+    ar: "الزهور",
+    en: "Flowers",
+    description: "بوكيهات ورد ستان وورد صناعي هاند ميد لكل المناسبات",
+    folder: "zohor",
   },
 };
