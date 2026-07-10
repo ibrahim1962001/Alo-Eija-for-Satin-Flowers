@@ -1,10 +1,11 @@
 import { Link, useParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight, ShoppingBag, MessageCircle } from "lucide-react";
-import { getProductById } from "@/data/products";
+import { getProductById, products } from "@/data/products";
 import { useCartStore } from "@/lib/cart-store";
 import { assetUrl, WHATSAPP_NUMBER } from "@/lib/utils";
 import { Button } from "@/components/ui/Button";
+import { ProductCard } from "@/components/shop/ProductCard";
 import { categoryLabels } from "@/types";
 import NotFoundPage from "./NotFoundPage";
 
@@ -14,6 +15,10 @@ export default function ProductDetailPage() {
   const addItem = useCartStore((s) => s.addItem);
 
   if (!product) return <NotFoundPage />;
+
+  const relatedProducts = products
+    .filter((p) => p.category === product.category && p.id !== product.id)
+    .slice(0, 3);
 
   const handleWhatsApp = () => {
     const message = encodeURIComponent(
@@ -110,6 +115,20 @@ export default function ProductDetailPage() {
             </div>
           </motion.div>
         </div>
+
+        {relatedProducts.length > 0 && (
+          <div className="mt-16 sm:mt-24">
+            <h2 className="font-display text-2xl sm:text-3xl text-cream mb-2 text-center">
+              قد يعجبك أيضاً
+            </h2>
+            <div className="h-px w-20 bg-linear-to-l from-gold to-transparent mb-8 sm:mb-10 mx-auto" />
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+              {relatedProducts.map((p, i) => (
+                <ProductCard key={p.id} product={p} index={i} />
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

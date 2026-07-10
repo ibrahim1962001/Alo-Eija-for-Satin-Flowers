@@ -1,0 +1,20 @@
+{
+  "name": "Alo Eija for Satin Flowers",
+  "short_name": "Alo Eija",
+  "description": "بوكيهات زهور ستان وصناعي، صواني ومرايات، مناديل كتب الكتاب، وهوايات عروسة هاند ميد.",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": ".",
+  "scope": ".",
+  "display": "standalone",
+  "background_color": "#3D0A14",
+  "theme_color": "#3D0A14",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

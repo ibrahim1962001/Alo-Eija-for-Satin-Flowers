@@ -1,7 +1,15 @@
 import { lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowLeft, Sparkles, Heart, Star } from "lucide-react";
+import {
+  ArrowLeft,
+  Sparkles,
+  Heart,
+  Star,
+  Search,
+  MessageCircle,
+  Truck,
+} from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 import { ProductCard } from "@/components/shop/ProductCard";
@@ -24,6 +32,24 @@ const categoryShowcase: { key: Category; image: string }[] = [
     image: "/images/mandil-kotob-alkitab/product-1.jpg",
   },
   { key: "hawyet-alaroosa", image: "/images/hawyet-alaroosa/product-1.jpg" },
+];
+
+const orderSteps = [
+  {
+    icon: Search,
+    title: "اختاري تصميمك",
+    description: "تصفحي أقسامنا واختاري القطعة أو التصميم الذي يناسب مناسبتك",
+  },
+  {
+    icon: MessageCircle,
+    title: "تواصلي واتساب",
+    description: "راسلينا على واتساب لتأكيد الطلب والتخصيص ومعرفة السعر",
+  },
+  {
+    icon: Truck,
+    title: "استلمي طلبك",
+    description: "نجهّز قطعتك بعناية ونوصّلها إليكِ داخل جمهورية مصر",
+  },
 ];
 
 const features = [
@@ -214,6 +240,44 @@ export default function HomePage() {
               عرض كل المنتجات
             </Button>
           </motion.div>
+        </div>
+      </section>
+
+      {/* How to order */}
+      <section className="py-16 md:py-24 relative">
+        <div className="absolute inset-0 bg-linear-to-b from-burgundy via-burgundy-light/20 to-burgundy" />
+        <div className="container mx-auto px-6 relative z-10">
+          <SectionTitle
+            subtitle="سهلة وسريعة"
+            title="طريقة الطلب"
+            description="ثلاث خطوات بسيطة تفصلك عن هديتك المثالية"
+          />
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 max-w-5xl mx-auto">
+            {orderSteps.map((step, i) => (
+              <motion.div
+                key={step.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.15, duration: 0.6 }}
+                className="relative text-center"
+              >
+                <div className="relative mx-auto mb-5 w-16 h-16 rounded-2xl bg-gold/10 flex items-center justify-center">
+                  <step.icon className="w-7 h-7 text-gold" />
+                  <span className="absolute -top-2 -inset-s-2 w-7 h-7 rounded-full bg-gold text-burgundy text-sm font-bold flex items-center justify-center">
+                    {i + 1}
+                  </span>
+                </div>
+                <h3 className="font-display text-lg sm:text-xl text-cream mb-2">
+                  {step.title}
+                </h3>
+                <p className="text-cream/50 text-sm leading-relaxed max-w-xs mx-auto">
+                  {step.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 

@@ -1,5 +1,7 @@
+import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { motion } from "framer-motion";
+import { Search, X } from "lucide-react";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 import { ProductCard } from "@/components/shop/ProductCard";
 import { products } from "@/data/products";
@@ -24,6 +26,8 @@ export default function ProductsPage() {
   const catParam = searchParams.get("cat");
   const activeCategory: Category | "all" = isCategory(catParam) ? catParam : "all";
 
+  const [query, setQuery] = useState("");
+
   const setActiveCategory = (key: Category | "all") => {
     if (key === "all") {
       setSearchParams({});
@@ -32,10 +36,18 @@ export default function ProductsPage() {
     }
   };
 
-  const filtered =
-    activeCategory === "all"
-      ? products
-      : products.filter((p) => p.category === activeCategory);
+  const normalizedQuery = query.trim().toLowerCase();
+
+  const filtered = products
+    .filter((p) => activeCategory === "all" || p.category === activeCategory)
+    .filter((p) => {
+      if (!normalizedQuery) return true;
+      return (
+        p.name.toLowerCase().includes(normalizedQuery) ||
+        p.nameEn.toLowerCase().includes(normalizedQuery) ||
+        p.description.toLowerCase().includes(normalizedQuery)
+      );
+    });
 
   const activeDescription =
     activeCategory !== "all"
@@ -50,6 +62,26 @@ export default function ProductsPage() {
           title="مجموعتنا الكاملة"
           description={activeDescription}
         />
+
+        <div className="max-w-md mx-auto mb-6 sm:mb-8 relative">
+          <Search className="absolute top-1/2 -translate-y-1/2 inset-s-4 w-5 h-5 text-cream/30 pointer-events-none" />
+          <input
+            type="text"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="ابحثي عن منتج..."
+            className="w-full bg-burgundy-light/50 border border-gold/10 rounded-full ps-12 pe-11 py-3 text-cream placeholder:text-cream/30 focus:outline-none focus:border-gold/40 transition-colors"
+          />
+          {query && (
+            <button
+              onClick={() => setQuery("")}
+              aria-label="مسح البحث"
+              className="absolute top-1/2 -translate-y-1/2 inset-e-4 text-cream/40 hover:text-cream cursor-pointer"
+            >
+              <X className="w-4 h-4" />
+            </button>
+          )}
+        </div>
 
         <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-8 sm:mb-12">
           {categories.map((cat) => (
@@ -79,7 +111,9 @@ export default function ProductsPage() {
 
         {filtered.length === 0 && (
           <p className="text-center text-cream/40 text-lg py-20">
-            لا توجد منتجات في هذا القسم حالياً
+            {normalizedQuery
+              ? "لا توجد نتائج مطابقة لبحثك"
+              : "لا توجد منتجات في هذا القسم حالياً"}
           </p>
         )}
       </div>
