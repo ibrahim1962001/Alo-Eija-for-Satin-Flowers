@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 import { ProductCard } from "@/components/shop/ProductCard";
@@ -16,8 +16,21 @@ const categories: { key: Category | "all"; label: string }[] = [
   ).map(([key, value]) => ({ key, label: value.ar })),
 ];
 
+const isCategory = (value: string | null): value is Category =>
+  value != null && value in categoryLabels;
+
 export default function ProductsPage() {
-  const [activeCategory, setActiveCategory] = useState<Category | "all">("all");
+  const [searchParams, setSearchParams] = useSearchParams();
+  const catParam = searchParams.get("cat");
+  const activeCategory: Category | "all" = isCategory(catParam) ? catParam : "all";
+
+  const setActiveCategory = (key: Category | "all") => {
+    if (key === "all") {
+      setSearchParams({});
+    } else {
+      setSearchParams({ cat: key });
+    }
+  };
 
   const filtered =
     activeCategory === "all"

@@ -1,14 +1,30 @@
 import { lazy, Suspense } from "react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowLeft, Sparkles, Heart, Star } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 import { ProductCard } from "@/components/shop/ProductCard";
 import { featuredProducts } from "@/data/products";
+import { categoryLabels, type Category } from "@/types";
+import { assetUrl } from "@/lib/utils";
 
 const HeroScene = lazy(() =>
   import("@/components/3d/HeroScene").then((mod) => ({ default: mod.HeroScene }))
 );
+
+const categoryShowcase: { key: Category; image: string }[] = [
+  { key: "zohor", image: "/images/zohor/product-2.jpg" },
+  {
+    key: "sawani-wmarayat-shabaka",
+    image: "/images/sawani-wmarayat-shabaka/product-2.jpg",
+  },
+  {
+    key: "mandil-kotob-alkitab",
+    image: "/images/mandil-kotob-alkitab/product-1.jpg",
+  },
+  { key: "hawyet-alaroosa", image: "/images/hawyet-alaroosa/product-1.jpg" },
+];
 
 const features = [
   {
@@ -128,13 +144,57 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Featured Products */}
+      {/* Categories */}
       <section className="py-16 md:py-24">
+        <div className="container mx-auto px-6">
+          <SectionTitle
+            subtitle="تصفحي حسب القسم"
+            title="أقسامنا"
+            description="اختاري القسم الذي يناسب مناسبتك واكتشفي تصاميمنا المميزة"
+          />
+
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+            {categoryShowcase.map((cat, i) => (
+              <motion.div
+                key={cat.key}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1, duration: 0.5 }}
+              >
+                <Link
+                  to={`/products?cat=${cat.key}`}
+                  className="group relative block aspect-4/5 overflow-hidden rounded-2xl border border-gold/10"
+                >
+                  <img
+                    src={assetUrl(cat.image)}
+                    alt={categoryLabels[cat.key].ar}
+                    loading="lazy"
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-linear-to-t from-burgundy via-burgundy/40 to-transparent" />
+                  <div className="absolute inset-x-0 bottom-0 p-4 text-center">
+                    <h3 className="font-display text-base sm:text-xl text-cream mb-1">
+                      {categoryLabels[cat.key].ar}
+                    </h3>
+                    <span className="text-gold text-xs sm:text-sm opacity-0 group-hover:opacity-100 transition-opacity">
+                      تصفحي القسم ←
+                    </span>
+                  </div>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Products */}
+      <section className="py-16 md:py-24 bg-burgundy-light/10">
         <div className="container mx-auto px-6">
           <SectionTitle
             subtitle="مجموعتنا المميزة"
             title="أجمل التصاميم"
-            description="اكتشفي مجموعة مختارة من صوانينا ومراياتنا ومناديل كتب الكتاب المصنوعة يدوياً"
+            description="اكتشفي مجموعة مختارة من بوكيهات الزهور وصوانينا ومراياتنا ومناديل كتب الكتاب المصنوعة يدوياً"
           />
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">

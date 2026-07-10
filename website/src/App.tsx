@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { FloatingWhatsApp } from "@/components/layout/FloatingWhatsApp";
 import { CartDrawer } from "@/components/shop/CartDrawer";
 import { CartRehydrate } from "@/components/shop/CartRehydrate";
 import { ScrollToTop } from "@/components/layout/ScrollToTop";
@@ -29,6 +30,7 @@ export default function App() {
       </main>
       <Footer />
       <CartDrawer />
+      <FloatingWhatsApp />
     </>
   );
 }
