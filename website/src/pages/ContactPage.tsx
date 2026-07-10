@@ -1,9 +1,25 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { MessageCircle, Instagram, MapPin, Clock, Send } from "lucide-react";
+import { MessageCircle, Facebook, MapPin, Clock, Send } from "lucide-react";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 import { Button } from "@/components/ui/Button";
 import { WHATSAPP_NUMBER } from "@/lib/utils";
+
+const TIKTOK_URL = "https://www.tiktok.com/@alo.eija.for.sati";
+const FACEBOOK_URL = "https://www.facebook.com/share/1HHvSihG94/";
+
+function TikTokIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-hidden="true"
+    >
+      <path d="M16.5 3c.36 2.02 1.5 3.6 3.5 4.03v2.6c-1.2.03-2.36-.28-3.5-.86v5.9c0 3.36-2.5 5.83-5.75 5.83A5.6 5.6 0 0 1 5 14.9a5.53 5.53 0 0 1 6.5-5.42v2.72a2.9 2.9 0 0 0-1.1-.16 2.86 2.86 0 0 0-.9 5.55 2.86 2.86 0 0 0 3.75-2.72V3h3.25Z" />
+    </svg>
+  );
+}
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -51,17 +67,32 @@ export default function ContactPage() {
             </a>
 
             <a
-              href="https://instagram.com"
+              href={FACEBOOK_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-4 glass rounded-2xl p-6 hover:border-gold/30 transition-all"
             >
-              <div className="w-12 h-12 rounded-full bg-pink-500/20 flex items-center justify-center">
-                <Instagram className="w-5 h-5 text-pink-400" />
+              <div className="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center">
+                <Facebook className="w-5 h-5 text-blue-400" />
               </div>
               <div>
-                <h3 className="text-cream font-medium">انستجرام</h3>
-                <p className="text-cream/40 text-sm">@alo.eija.satin.flowers</p>
+                <h3 className="text-cream font-medium">فيسبوك</h3>
+                <p className="text-cream/40 text-sm">Alo Eija for Satin Flowers</p>
+              </div>
+            </a>
+
+            <a
+              href={TIKTOK_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-4 glass rounded-2xl p-6 hover:border-gold/30 transition-all"
+            >
+              <div className="w-12 h-12 rounded-full bg-cream/10 flex items-center justify-center">
+                <TikTokIcon className="w-5 h-5 text-cream" />
+              </div>
+              <div>
+                <h3 className="text-cream font-medium">تيك توك</h3>
+                <p className="text-cream/40 text-sm">@alo.eija.for.sati</p>
               </div>
             </a>
 
