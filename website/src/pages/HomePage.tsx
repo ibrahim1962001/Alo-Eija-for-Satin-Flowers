@@ -13,6 +13,9 @@ import {
 import { Button } from "@/components/ui/Button";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 import { ProductCard } from "@/components/shop/ProductCard";
+import { Stats } from "@/components/sections/Stats";
+import { Testimonials } from "@/components/sections/Testimonials";
+import { FAQ } from "@/components/sections/FAQ";
 import { featuredProducts } from "@/data/products";
 import { categoryLabels, type Category } from "@/types";
 import { assetUrl } from "@/lib/utils";
@@ -170,6 +173,9 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Stats */}
+      <Stats />
+
       {/* Categories */}
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-6">
@@ -280,6 +286,12 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Testimonials */}
+      <Testimonials />
+
+      {/* FAQ */}
+      <FAQ />
 
       {/* CTA Banner */}
       <section className="py-16 md:py-24 relative overflow-hidden">

@@ -1,6 +1,13 @@
+import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { motion } from "framer-motion";
-import { ArrowRight, ShoppingBag, MessageCircle } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  ArrowRight,
+  ShoppingBag,
+  MessageCircle,
+  ZoomIn,
+  X,
+} from "lucide-react";
 import { getProductById, products } from "@/data/products";
 import { useCartStore } from "@/lib/cart-store";
 import { assetUrl, WHATSAPP_NUMBER } from "@/lib/utils";
@@ -13,6 +20,7 @@ export default function ProductDetailPage() {
   const { id } = useParams<{ id: string }>();
   const product = id ? getProductById(id) : undefined;
   const addItem = useCartStore((s) => s.addItem);
+  const [zoomed, setZoomed] = useState(false);
 
   if (!product) return <NotFoundPage />;
 
@@ -43,13 +51,19 @@ export default function ProductDetailPage() {
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
-            className="relative aspect-4/5 rounded-3xl overflow-hidden border border-gold/10"
+            className="group relative aspect-4/5 rounded-3xl overflow-hidden border border-gold/10 cursor-zoom-in"
+            onClick={() => setZoomed(true)}
           >
             <img
               src={assetUrl(product.image)}
               alt={product.name}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
+            <div className="absolute inset-0 bg-burgundy/0 group-hover:bg-burgundy/20 transition-colors flex items-center justify-center">
+              <span className="opacity-0 group-hover:opacity-100 transition-opacity w-12 h-12 rounded-full bg-cream/20 backdrop-blur-md flex items-center justify-center text-cream">
+                <ZoomIn className="w-5 h-5" />
+              </span>
+            </div>
             {product.badge && (
               <span className="absolute top-6 right-6 bg-gold text-burgundy text-sm font-bold px-4 py-1.5 rounded-full">
                 {product.badge}
@@ -130,6 +144,35 @@ export default function ProductDetailPage() {
           </div>
         )}
       </div>
+
+      <AnimatePresence>
+        {zoomed && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setZoomed(false)}
+            className="fixed inset-0 z-80 bg-black/85 backdrop-blur-sm flex items-center justify-center p-4"
+          >
+            <button
+              onClick={() => setZoomed(false)}
+              aria-label="إغلاق"
+              className="absolute top-5 inset-e-5 w-11 h-11 rounded-full bg-cream/10 text-cream flex items-center justify-center hover:bg-cream/20 cursor-pointer"
+            >
+              <X className="w-5 h-5" />
+            </button>
+            <motion.img
+              initial={{ scale: 0.9 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0.9 }}
+              src={assetUrl(product.image)}
+              alt={product.name}
+              onClick={(e) => e.stopPropagation()}
+              className="max-h-[90vh] max-w-full rounded-2xl object-contain"
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
