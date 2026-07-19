@@ -52,7 +52,7 @@ export default function ProductsPage() {
   const activeDescription =
     activeCategory !== "all"
       ? categoryLabels[activeCategory].description
-      : "تصفحي تشكيلتنا من صواني ومرايات شبكه ومناديل كتب الكتاب وهوايات العروسة";
+      : "تصفحي تشكيلتنا من الورد الستان والزهور وصواني ومرايات شبكه ومناديل كتب الكتاب وهوايات العروسة";
 
   return (
     <div className="pt-24 md:pt-28 pb-16 md:pb-24">

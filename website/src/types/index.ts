@@ -1,8 +1,9 @@
 export type Category =
+  | "ward-satin"
+  | "zohor"
   | "sawani-wmarayat-shabaka"
   | "mandil-kotob-alkitab"
-  | "hawyet-alaroosa"
-  | "zohor";
+  | "hawyet-alaroosa";
 
 export interface Product {
   id: string;
@@ -24,6 +25,18 @@ export const categoryLabels: Record<
   Category,
   { ar: string; en: string; description: string; folder: string }
 > = {
+  "ward-satin": {
+    ar: "الورد الستان",
+    en: "Satin Flowers",
+    description: "بوكيهات ورد ستان هاند ميد بألوان وتصاميم فاخرة مع إمكانية التخصيص",
+    folder: "ward-satin",
+  },
+  zohor: {
+    ar: "الزهور",
+    en: "Flowers",
+    description: "بوكيهات ورد صناعي وتنسيقات زهرية هاند ميد لكل المناسبات",
+    folder: "zohor",
+  },
   "sawani-wmarayat-shabaka": {
     ar: "صواني ومرايات شبكه",
     en: "Trays & Mesh Mirrors",
@@ -41,11 +54,5 @@ export const categoryLabels: Record<
     en: "Bride's Fan",
     description: "هوايات عروسة فاخرة بالريش مع تخصيص بالاسم",
     folder: "hawyet-alaroosa",
-  },
-  zohor: {
-    ar: "الزهور",
-    en: "Flowers",
-    description: "بوكيهات ورد ستان وورد صناعي هاند ميد لكل المناسبات",
-    folder: "zohor",
   },
 };

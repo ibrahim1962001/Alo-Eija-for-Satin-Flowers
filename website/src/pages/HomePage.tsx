@@ -25,6 +25,7 @@ const HeroScene = lazy(() =>
 );
 
 const categoryShowcase: { key: Category; image: string }[] = [
+  { key: "ward-satin", image: "/images/ward-satin/product-6.jpg" },
   { key: "zohor", image: "/images/zohor/product-2.jpg" },
   {
     key: "sawani-wmarayat-shabaka",
@@ -102,8 +103,8 @@ export default function HomePage() {
             </h1>
 
             <p className="text-cream/60 text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-8 sm:mb-10 leading-relaxed px-2">
-              بوكيهات الزهور، صواني ومرايات شبكه، مناديل كتب الكتاب، وهوايات
-              العروسة — كل قطعة مصنوعة يدوياً بحب وتفاصيل فاخرة
+              الورد الستان، بوكيهات الزهور، صواني ومرايات شبكه، مناديل كتب
+              الكتاب، وهوايات العروسة — كل قطعة مصنوعة يدوياً بحب وتفاصيل فاخرة
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
@@ -185,7 +186,7 @@ export default function HomePage() {
             description="اختاري القسم الذي يناسب مناسبتك واكتشفي تصاميمنا المميزة"
           />
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6">
             {categoryShowcase.map((cat, i) => (
               <motion.div
                 key={cat.key}

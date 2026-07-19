@@ -10,7 +10,7 @@ interface Stat {
 const stats: Stat[] = [
   { value: 300, suffix: "+", label: "عميلة سعيدة" },
   { value: 50, suffix: "+", label: "تصميم فريد" },
-  { value: 4, suffix: "", label: "أقسام مميزة" },
+  { value: 5, suffix: "", label: "أقسام مميزة" },
   { value: 100, suffix: "%", label: "صناعة يدوية" },
 ];
 
